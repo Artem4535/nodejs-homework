@@ -13,23 +13,23 @@ const { checkID, validateBody } = require("../../middlewares");
 
 const { validateSchema, ubdateFavouriteSchema } = require("../../models");
 
-const router = express.Router();
+const contactsRouter = express.Router();
 
-router.get("/", getAllContacts);
+contactsRouter.get("/", getAllContacts);
 
-router.get("/:contactId", checkID, getContactById);
+contactsRouter.get("/:contactId", checkID, getContactById);
 
-router.post("/", validateBody(validateSchema), addContact);
+contactsRouter.post("/", validateBody(validateSchema), addContact);
 
-router.put("/:contactId", validateBody(validateSchema), checkID, ubdateContactById);
+contactsRouter.put("/:contactId", validateBody(validateSchema), checkID, ubdateContactById);
 
-router.patch(
+contactsRouter.patch(
   "/:contactId/favourite",
   validateBody(ubdateFavouriteSchema),
   checkID,
   ubdateFavourite
 );
 
-router.delete("/:contactId", checkID, deleteContactById);
+contactsRouter.delete("/:contactId", checkID, deleteContactById);
 
-module.exports = router;
+module.exports = contactsRouter;
