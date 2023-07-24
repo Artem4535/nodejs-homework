@@ -3,7 +3,7 @@ const addContact = require("./addContact");
 const deleteContactById = require("./deleteContactById");
 const getAllContacts = require("./getAllContacts");
 const getContactById = require("./getContactById");
-const ubdateContactById = require("./ubdateContactById");
+const ubdateContactById = require("../user/ubdateContactById");
 const ubdateFavourite = require("./ubdateFavourite");
 
 module.exports = {
