@@ -6,6 +6,10 @@ const authenticate = async (req, res, next) => {
   const [bearer, token] = authorization.split(" ");
   const { SEKRET_KEY } = process.env;
 
+  if (!token) {
+    next(HttpError(401));
+  }
+
   if (bearer !== "Bearer") {
     next(HttpError(401));
   }
